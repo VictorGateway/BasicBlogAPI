@@ -63,7 +63,14 @@ REST_FRAMEWORK = {
     ],
 }
 
-REST_AUTH_SERIALIZERS = {'LOGIN_SERIALIZER': BASE_DIR / "accounts/serializers.py"}
+# REST_AUTH_SERIALIZERS = {
+#     'LOGIN_SERIALIZER': 'accounts.serializers.LoginSerializer'
+    
+#     }
+REST_AUTH = {
+    'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer'
+}
+#'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserRegisterSerializer',
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -156,6 +163,14 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTHENTICATION_BACKENDS = (
+ # Needed to login by username in Django admin, regardless of `allauth`
+ "django.contrib.auth.backends.ModelBackend",
+
+ # `allauth` specific authentication methods, such as login by e-mail
+ "allauth.account.auth_backends.AuthenticationBackend",
+)
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 

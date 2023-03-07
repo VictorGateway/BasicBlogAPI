@@ -12,3 +12,5 @@ class IsAuthorOrReadOnly(permissions.BasePermission):
             #allows read permissions 
             return True
         return request.user==obj.author
+    
+

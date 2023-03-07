@@ -1,10 +1,12 @@
 
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from rest_framework import serializers
-from allauth.account  import app_settings as allauth_account_settings
 from accounts.models import CustomUser
 from allauth.account.adapter import get_adapter
+from dj_rest_auth.serializers import LoginSerializer
 
+class CustomLoginSerializer(LoginSerializer):
+    username=None
 
 class CustomRegisterSerializer(RegisterSerializer):
     username=None

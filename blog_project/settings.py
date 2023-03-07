@@ -63,14 +63,12 @@ REST_FRAMEWORK = {
     ],
 }
 
-# REST_AUTH_SERIALIZERS = {
-#     'LOGIN_SERIALIZER': 'accounts.serializers.LoginSerializer'
-    
-#     }
+
 REST_AUTH = {
-    'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer'
+    'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer',
+    'LOGIN_SERIALIZER': 'accounts.serializers.CustomLoginSerializer',
 }
-#'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserRegisterSerializer',
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
